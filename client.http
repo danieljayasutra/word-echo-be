@@ -1,0 +1,9 @@
+# pre-request: install rest client extension
+
+# post request to endpoint audio
+POST http://localhost:3555/audio
+Content-Type: application/json
+
+{
+  
+}
