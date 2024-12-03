@@ -8,6 +8,12 @@ if (!fs.existsSync('.env')) {
   process.exit(1); // Exit with status code 1 (failure)
 }
 
+// check api keys
+if (process.env.API_KEYS === undefined) {
+  console.error('Error: variable "API_KEYS" in .env not found!');
+  process.exit(1); // Exit with status code 1 (failure)
+}
+
 // to host in local or vps
 const port = process.env.PORT || 3555;
 app.listen(port, () => {
