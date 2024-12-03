@@ -1,10 +1,33 @@
-# pre-request: install rest client extension
+# pre-request: install rest client extension (vs code)
 
-# post request to endpoint audio
-POST http://localhost:3555/audio
+@baseUrl = http://localhost:3555
+
+### POST audio
+POST {{baseUrl}}/audio
 Content-Type: application/json
 
 {
-  "difficulty": "easy",
+  "id": "65b6577d-e317-4b44-bd2d-7a24db400186",
+  "difficulty": "easy"
+}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+
+### POST obtain
+POST {{baseUrl}}/quiz/obtain
+Content-Type: application/json
+
+{
+  "difficulty": "hard",
   "excludedIds": []
+}
+
+
+### POST verify
+POST {{baseUrl}}/quiz/verify
+Content-Type: application/json
+
+{
+  "id": "89ea38b2-6d8e-4dc9-ac91-d363f44ca87e",
+  "difficulty": "medium",
+  "verifyText": "I need to finish my homework before dinner"
 }

@@ -2,6 +2,8 @@ const express = require('express');
 const morgan = require('morgan');
 
 const audio = require('./audio');
+const obtain = require('./quiz-obtain');
+const verify = require('./quiz-verify');
 
 const app = express();
 if (process.env.NODE_ENV === 'development') {
@@ -14,5 +16,7 @@ app.use('/status', (req, res) => {
 });
 
 app.use('/audio', audio);
+app.use('/quiz/obtain', obtain);
+app.use('/quiz/verify', verify);
 
 module.exports = app;
