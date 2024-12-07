@@ -41,8 +41,11 @@ router.post('/', async (req, res, next) => {
     });
   }
 
-  const isSame = quiz.sentence === verifyText;
-
+  const isSame =
+    quiz.sentence.toLowerCase().replace(/\s+/g, '') ===
+    verifyText.toLowerCase().replace(/\s+/g, '');
+  console.log(quiz.sentence.toLowerCase().trim());
+  console.log(verifyText.toLowerCase().trim());
   if (isSame) {
     res.status(200).json({
       ...quiz,
