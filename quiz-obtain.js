@@ -40,7 +40,7 @@ router.post('/', async (req, res, next) => {
   if (difficulty === 'hard') {
     quiz = getRandomData(hard, excludedIds);
   }
-
+  console.log(quiz);
   res.status(200).json(quiz);
 });
 

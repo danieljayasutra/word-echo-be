@@ -25,7 +25,7 @@ Content-Type: application/json
 ### POST verify
 POST {{baseUrl}}/quiz/verify
 Content-Type: application/json
-d
+
 {
   "id": "89ea38b2-6d8e-4dc9-ac91-d363f44ca87e",
   "difficulty": "medium",

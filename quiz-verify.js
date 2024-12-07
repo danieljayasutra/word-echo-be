@@ -41,11 +41,20 @@ router.post('/', async (req, res, next) => {
     });
   }
 
-  const isSame =
-    quiz.sentence.toLowerCase().replace(/\s+/g, '') ===
-    verifyText.toLowerCase().replace(/\s+/g, '');
-  console.log(quiz.sentence.toLowerCase().trim());
-  console.log(verifyText.toLowerCase().trim());
+  const quizTextClean = quiz.sentence
+    .toLowerCase()
+    .replace(/\s+/g, '')
+    .replace(/[^a-zA-Z0-9]/g, '');
+
+  const verifyTextClean = verifyText
+    .toLowerCase()
+    .replace(/\s+/g, '')
+    .replace(/[^a-zA-Z0-9]/g, '');
+
+  const isSame = quizTextClean === verifyTextClean;
+
+  console.log(quizTextClean, verifyTextClean, isSame);
+
   if (isSame) {
     res.status(200).json({
       ...quiz,
